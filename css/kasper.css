@@ -16,6 +16,7 @@
   --price-color: #fcfcfc;
   --border-color: #ccc;
   --section-padding: 100px;
+  --main-duration: 0.5s;
 }
 /* End Variables */
 /* Start Global Rules */
@@ -152,20 +153,20 @@ header nav ul {
 @media (max-width: 767px) {
   header nav ul {
     display: none;
-  }
-  header nav .toggle-menu:hover + ul {
-    display: flex;
-    flex-direction: column;
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
     background-color: var(--menu-background-color);
+    transition: var(--main-duration);
+    flex-direction: column;
+  }
+  header nav:hover ul {
+    display: block;
+    transition: var(--main-duration);
   }
   header nav .toggle-menu:hover + ul li a {
     padding: 15px;
-    /* Not recommended to use !important because it makes editing difficult */
-    /* padding: 15px !important; */
   }
 }
 header nav ul li a {
@@ -1037,10 +1038,9 @@ header nav .form i {
   font-size: 22px;
   margin: 20px auto;
 }
-.footer .social-icons a  {
+.footer .social-icons a {
   padding: 10px 15px;
   color: var(--icons-color);
-    
 }
 .footer .copyright {
   margin-top: 50px;
